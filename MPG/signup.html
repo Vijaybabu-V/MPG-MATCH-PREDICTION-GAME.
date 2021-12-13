@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SignUp</title>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+    *
+    {
+    margin:0;
+    
+    }
+    body{
+    width:100%;
+    height:100%;
+    background-size: cover;
+    display:flex;
+    justify-content: center;
+    
+    }
+    
+    .container
+    {
+    
+    border: 2px solid #ccc;
+    width:500px;
+    height:875px;
+    border-radius:5px;
+    margin-top: 20px;
+    padding-top: 18px;
+    
+    }
+    
+    .container span
+    {
+    
+    margin-left: 23px;
+    font-family: sans-serif;
+    font-size: 27px;
+    }
+    .container p
+    {
+    margin-left:23px;
+    font-family:sans-serif;
+    font-size: 15px;
+    padding-bottom: 5px;
+    
+    
+    }
+    .container input[type=text],input[type=password]
+    {
+    margin-left:23px;
+    width: 80%;
+    height:15%;
+    padding: 9px;
+     box-sizing: border-box;
+     border: 2px solid #ccc;
+     border-radius: 3px;
+    
+     
+    
+    }
+    .container input[type=text]:focus,input[type=password]:focus
+     {
+     
+         outline: none;
+         border: 1px solid  rgb(0, 168, 225);
+        box-shadow: 1px 1px 1px 2px  rgb(0, 168, 225);
+    }
+    
+    .container input[type=submit]
+    {
+    margin-left: 23px;
+    width:80%;
+    padding:9px;
+    margin-top:2px;
+    color:white;
+    font-family:sans-serif;
+    font-size:16px;
+    background-color: rgb(0, 168, 230);
+    opacity:0.9;
+    border:2px solid rgb(0, 168, 225);
+    border-radius:4px;
+    
+    
+    }
+    </style>
+
+
+
+
+
+</head>
+<body>
+   
+
+
+<div class="container">
+<form action="signup" method="post" onsubmit="return validate()">
+
+<span>SignUp</span></br></br>
+
+<p>Email</p> <input type="text" name="mail"   id="e_mail" /><br><br><p id="mail"></p>
+<p>Password</p> <input type="password" name="pwd1" id="pwd1"/><br><br>
+<p>Confirm Password</p> <input type="password" name="pwd2" id="pwd2"/><br><br>
+<p>User Name</p> <input type="text" name="uname" id="uname"/><br><br>
+<p>Mobile No</p> <input type="text" name="mno"  id="mno"/><br><br>
+<p>Address</p> <input type="text" name="address" id="address"/><br><br>
+<p>City</p> <input type="text" name="city" id="city"/><br><br>
+<p>Country</p> <input type="text" name="country" id="country"/><br><br>
+<p>Pincode</p> <input type="text" name="pcode" id="pcode"/><br><br>
+
+</br>
+<p id="msg" style="color:red;"></p>
+<input type="submit" value="SIGNUP"/>
+
+<span  style="font-size: 20px;">Already have a account?
+</span>
+
+<a href="login.html">Login</a>
+</form>
+</div>
+<input type="hidden"  id="mail"/>
+
+<br>
+<br>
+
+
+
+
+</body>
+<script>
+
+  
+    function validate()
+    {
+        
+
+        var email=document.getElementById("e_mail");
+        var e_mail=$("#e_mail").val();
+        var pwd1=$("#pwd1").val();
+        var pwd2=$("#pwd2").val();
+        var uname=$("#uname").val();
+        var mno=$("#mno").val();
+        var address=$("#address").val();
+        var city=$("#city").val();
+        var country=$("#country").val();
+        var pincode=$("#pcode").val();
+        
+        var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+       
+       
+      
+
+
+        if(email.value.match(mailformat))
+        { 
+           
+
+            $.post("checkMail",{
+				mailID : e_mail
+				}, function(data, status) { 
+                    
+                  if(data=="failure")
+                 {
+                    $("#msg").text("E-mail Address already Exists*");
+                    $('#e_mail').focus();
+                    document.getElementById("mail").value=0;
+                    
+                   
+                   
+                }
+                else
+                {
+                    document.getElementById("mail").value=1;
+                }
+            });
+          
+            
+    if(document.getElementById("mail").value==0){
+        return false;
+    }
+         
+
+            
+
+
+        }
+        else
+         {
+            $("#msg").text("Invalid E-mail Address*");
+             return false;
+        }
+        /*
+        if(email=="")
+        {
+            $("#msg").text("Invalid E-mail Address*");
+             return false;
+        }*/
+      
+        if(pwd1!=pwd2)
+        {
+            $("#msg").text("Passwords are not equal*");
+            return false;
+        }
+        if(pwd1.length<5)
+        {
+            $("#msg").text("Passwords length is too small*");
+            return false;
+        }
+        if(uname=="")
+        {
+            $("#msg").text("Please enter the User Name*");
+            return false;
+        }
+        if(mno=="")
+        {
+            $("#msg").text("Please enter the Mobile no*");
+            return false;
+        }
+        if(address=="")
+        {
+            $("#msg").text("Please enter the Address*");
+            return false;
+        }
+        if(city=="")
+        {
+            $("#msg").text("Please enter the City*");
+            return false;
+        }
+        if(country=="")
+        {
+            $("#msg").text("Please enter the Country*");
+            return false;
+        }
+        if(pincode=="")
+        {
+            $("#msg").text("Please enter the Pincode*");
+            return false;
+        }
+
+      
+
+       
+
+
+        
+
+    }
+    
+    
+    
+    
+    
+    </script>
+
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="MPG">
+
+
+         <table name="User_Details">
+         
+                  <columns>
+
+                           <column name="User_ID">
+
+                                    <data-type>INTEGER</data-type>
+                                     <uniquevalue-generation>
+                                             <generator-name>User_Details.User_ID</generator-name>
+                                    </uniquevalue-generation>
+
+                           </column>
+
+                           <column name="User_Email">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                    <nullable>false</nullable>
+                                    <allowed-values>
+                                             <pattern>^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$</pattern>
+                                    </allowed-values>
+
+                           </column>
+
+                            <column name="User_Password">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                    <nullable>false</nullable>
+                           </column>
+
+                             <column name="User_Name">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                   
+                           </column>
+
+                            <column name="User_Mobile_No">
+                                    <data-type>BIGINT</data-type>
+                                    
+                                   
+                           </column>
+
+                            <column name="User_Image">
+                                    <data-type>BLOB</data-type>
+                                  
+                                   
+                           </column>
+
+                           <column name="User_Address">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>255</max-size>
+                                    
+                           </column>
+
+                            <column name="User_City">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                  
+                           </column>
+
+                           
+                            <column name="User_Country">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                
+                           </column>
+
+                            <column name="User_Pincode">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>30</max-size>
+                                  
+                           </column>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+                  </columns>
+
+                  <primary-key name="User_ID_PK">
+
+                  <primary-key-column>User_ID</primary-key-column>
+
+                  </primary-key>
+                
+         </table>
+
+
+
+       <table name="User_Points_Table">
+
+       <columns>
+    
+        <column name="Points_ID">
+                <data-type>INTEGER</data-type>
+                 <uniquevalue-generation>
+                    <generator-name>User_Points_Table.Points_ID</generator-name>
+                </uniquevalue-generation>
+                                    
+        </column>
+
+        
+        <column name="User_ID">
+                <data-type>INTEGER</data-type>
+                
+                                    
+        </column>
+
+
+          <column name="No_Of_Matches">
+                <data-type>INTEGER</data-type>      
+        </column>
+
+        <column name="Win">
+                <data-type>INTEGER</data-type>      
+        </column> 
+       
+          <column name="Loss">
+                <data-type>INTEGER</data-type>      
+        </column> 
+
+         <column name="Total_Points">
+                <data-type>INTEGER</data-type>      
+        </column>
+       
+       
+       </columns>
+
+        <primary-key name="Points_ID_PK">
+
+            <primary-key-column>Points_ID</primary-key-column>
+
+        </primary-key>
+
+
+
+    <foreign-keys>
+
+    <foreign-key name="User_ID_FK1" reference-table-name="User_Details">
+      <fk-columns>
+         <fk-column>
+            <fk-local-column>User_ID</fk-local-column>
+            <fk-reference-column>User_ID</fk-reference-column>
+         </fk-column>
+      </fk-columns>
+   </foreign-key>
+
+
+
+
+
+    </foreign-keys>
+
+ 
+      </table>
+
+
+
+
+         <table name="Team_Details">
+         
+                  <columns>
+
+                           <column name="Team_ID">
+
+                                    <data-type>INTEGER</data-type>
+                                     <uniquevalue-generation>
+                                             <generator-name>Team_Details.Team_ID</generator-name>
+                                    </uniquevalue-generation>
+
+                           </column>
+
+                           <column name="Team_Name">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                    <nullable>false</nullable>
+                            
+
+                           </column>
+
+                            <column name="Team_Image">
+
+                                    <data-type>BLOB</data-type>
+                           </column>
+
+                             <column name="Team_Owner">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                    <nullable>false</nullable>
+                                     
+                                   
+                           </column>
+
+                            <column name="Team_City">
+                                     <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                    <nullable>false</nullable>
+                                    
+                                   
+                           </column>
+
+                            <column name="Team_Mail">
+                                     <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                    <nullable>false</nullable>
+                                    <allowed-values>
+                                             <pattern>^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$</pattern>
+                                    </allowed-values>
+                                  
+                                   
+                           </column>
+
+                           <column name="Team_Phone_No">
+
+                                  <data-type>BIGINT</data-type>
+                                    
+                           </column>
+
+                             <column name="Team_Players_Count">
+
+                                  <data-type>INTEGER</data-type>
+                                    
+                           </column>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+                  </columns>
+
+                  <primary-key name="Team_ID_PK">
+
+                  <primary-key-column>Team_ID</primary-key-column>
+
+                  </primary-key>
+                
+         </table>
+
+
+
+
+         <table name="Team_Points_Table">
+
+       <columns>
+    
+        <column name="TPoints_ID">
+                <data-type>INTEGER</data-type>
+                 <uniquevalue-generation>
+                    <generator-name>Team_Points_Table.TPoints_ID</generator-name>
+                </uniquevalue-generation>
+                                    
+        </column>
+
+        
+        <column name="Team_ID">
+                <data-type>INTEGER</data-type>
+                
+                                    
+        </column>
+
+
+          <column name="No_Of_Matches">
+                <data-type>INTEGER</data-type>      
+        </column>
+
+        <column name="Win">
+                <data-type>INTEGER</data-type>      
+        </column> 
+       
+          <column name="Loss">
+                <data-type>INTEGER</data-type>      
+        </column> 
+
+        
+          <column name="Draw">
+
+                <data-type>INTEGER</data-type>      
+        </column> 
+
+
+
+         <column name="Total_Points">
+                <data-type>INTEGER</data-type>      
+        </column>
+       
+       
+       </columns>
+
+        <primary-key name="TPoints_ID_PK">
+
+            <primary-key-column>TPoints_ID</primary-key-column>
+
+        </primary-key>
+
+
+
+    <foreign-keys>
+
+    <foreign-key name="Team_ID_FK1" reference-table-name="Team_Details">
+      <fk-columns>
+         <fk-column>
+            <fk-local-column>Team_ID</fk-local-column>
+            <fk-reference-column>Team_ID</fk-reference-column>
+         </fk-column>
+      </fk-columns>
+   </foreign-key>
+
+
+
+
+
+    </foreign-keys>
+
+ 
+      </table>
+
+
+       <table name="Matches">
+         
+                  <columns>
+
+                           <column name="Match_ID">
+
+                                    <data-type>INTEGER</data-type>
+                                     <uniquevalue-generation>
+                                             <generator-name>Matches.Match_ID</generator-name>
+                                    </uniquevalue-generation>
+
+                           </column>
+
+                           <column name="Team1">
+
+                                    <data-type>INTEGER</data-type>
+                                     <nullable>false</nullable>
+
+                           </column>
+
+                            <column name="Team2">
+                                    <data-type>INTEGER</data-type>
+                                     <nullable>false</nullable>
+                                    
+                           </column>
+
+                             <column name="Winner">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                     <nullable>false</nullable>
+                                
+
+                                   
+                           </column>
+
+                            <column name="Runner">
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                     <nullable>false</nullable>
+                                    
+                                    
+                                   
+                           </column>
+
+                            <column name="Draw">
+                                    <data-type>BOOLEAN</data-type>
+                                      <nullable>false</nullable>
+                                  
+                                   
+                           </column>
+
+                           <column name="Date">
+
+                                    <data-type>DATE</data-type>
+                                     <nullable>false</nullable>
+                                   
+                                    
+                           </column>
+
+                            <column name="Venue">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                     <nullable>false</nullable>
+                                  
+                           </column>
+
+                           
+                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+                  </columns>
+
+                  <primary-key name="Match_ID_PK">
+
+                  <primary-key-column>Match_ID</primary-key-column>
+
+                  </primary-key>
+
+
+                  
+    <foreign-keys>
+
+    <foreign-key name="Team1_ID_FK1" reference-table-name="Team_Details">
+      <fk-columns>
+         <fk-column>
+            <fk-local-column>Team1</fk-local-column>
+            <fk-reference-column>Team_ID</fk-reference-column>
+         </fk-column>
+      </fk-columns>
+   </foreign-key>
+
+
+   <foreign-key name="Team2_ID_FK1" reference-table-name="Team_Details">
+      <fk-columns>
+         <fk-column>
+            <fk-local-column>Team2</fk-local-column>
+            <fk-reference-column>Team_ID</fk-reference-column>
+         </fk-column>
+      </fk-columns>
+   </foreign-key>
+
+
+
+
+
+    </foreign-keys>
+
+
+                
+         </table>
+
+ <table name="Prediction">
+         
+                  <columns>
+
+                           <column name="Prediction_ID">
+
+                                    <data-type>INTEGER</data-type>
+                                     <uniquevalue-generation>
+                                             <generator-name>Prediction.Prediction_ID</generator-name>
+                                    </uniquevalue-generation>
+
+                           </column>
+
+                           <column name="Match_ID">
+
+                                    <data-type>INTEGER</data-type>
+                                     <nullable>false</nullable>
+
+                           </column>
+
+                            <column name="User_ID">
+                                    <data-type>INTEGER</data-type>
+                                     <nullable>false</nullable>
+                                    
+                           </column>
+
+                             <column name="User_Prediction">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                     <nullable>false</nullable>
+                                     <allowed-values>
+                                             <value>Win</value>
+                                             <value>Loss</value>
+                                             <value>Draw</value>
+                                    </allowed-values>
+
+                           </column>
+
+                           
+
+
+
+                          
+                  </columns>
+
+                  <primary-key name="Prediction_ID_PK">
+
+                  <primary-key-column>Prediction_ID</primary-key-column>
+
+                  </primary-key>
+
+
+                  
+    <foreign-keys>
+
+    <foreign-key name="Match1_ID_FK1" reference-table-name="Matches">
+      <fk-columns>
+         <fk-column>
+            <fk-local-column>Match_ID</fk-local-column>
+            <fk-reference-column>Match_ID</fk-reference-column>
+         </fk-column>
+      </fk-columns>
+   </foreign-key>
+
+
+   <foreign-key name="User1_ID_FK1" reference-table-name="User_Details">
+      <fk-columns>
+         <fk-column>
+            <fk-local-column>User_ID</fk-local-column>
+            <fk-reference-column>User_ID</fk-reference-column>
+         </fk-column>
+      </fk-columns>
+   </foreign-key>
+
+
+
+   <unique-keys>
+   <unique-key name="Prediction_UK1">
+      <unique-key-column>Match_ID</unique-key-column>
+      <unique-key-column> User_ID</unique-key-column>
+   </unique-key>
+</unique-keys>
+
+
+
+
+
+    </foreign-keys>
+
+
+                
+         </table>
+
+
+
+<table name="Group_Details">
+         
+                  <columns>
+
+                           <column name="Group_ID">
+
+                                    <data-type>INTEGER</data-type>
+                                     <uniquevalue-generation>
+                                             <generator-name>Group_Details.Group_ID</generator-name>
+                                    </uniquevalue-generation>
+
+                           </column>
+
+                           <column name="Group_Name">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>50</max-size>
+                                    <nullable>false</nullable>
+
+                           </column>
+
+                            <column name="Group_Size">
+
+                                    <data-type>INTEGER</data-type>
+                                    <nullable>false</nullable>
+                           </column>
+
+                             <column name="Admin_ID">
+
+                                    <data-type>INTEGER</data-type>
+                                    <nullable>false</nullable>
+                                   
+                           </column>
+
+                            <column name="Created_Date">
+                                      <data-type>DATE</data-type>
+                                     <nullable>false</nullable>
+                                   
+                                    
+                                   
+                           </column>
+
+                            <column name="First_Prize">
+                                    <data-type>DOUBLE</data-type>
+                                     <nullable>false</nullable>
+                                  
+                                   
+                           </column>
+
+                           <column name="Second_Prize">
+
+                                     <data-type>DOUBLE</data-type>
+                                     <nullable>false</nullable>
+                                  
+                                    
+                           </column>
+
+                            <column name="Description">
+
+                                    <data-type>CHAR</data-type>
+                                    <max-size>100</max-size>
+                                  
+                           </column>
+
+                           
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+                  </columns>
+
+                  <primary-key name="Group_ID_PK">
+
+                  <primary-key-column>Group_ID</primary-key-column>
+
+                  </primary-key>
+
+
+
+                  <foreign-keys>
+
+    <foreign-key name="Admin_ID_FK1" reference-table-name="User_Details">
+      <fk-columns>
+         <fk-column>
+            <fk-local-column>Admin_ID</fk-local-column>
+            <fk-reference-column>User_ID</fk-reference-column>
+         </fk-column>
+      </fk-columns>
+   </foreign-key>
+
+    </foreign-keys>
+
+                
+         </table>
+
+
+
+
+<table name="Group_Members">
+         
+                  <columns>
+
+                           <column name="GM_ID">
+
+                                    <data-type>INTEGER</data-type>
+                                     <uniquevalue-generation>
+                                             <generator-name>Group_Members.GM_ID</generator-name>
+                                    </uniquevalue-generation>
+                                       <nullable>false</nullable>
+
+                           </column>
+
+                           <column name="Group_ID">
+
+                                    <data-type>INTEGER</data-type>
+                                    <nullable>false</nullable>
+
+                           </column>
+
+                            <column name="User_ID">
+
+                                    <data-type>INTEGER</data-type>
+                                    <nullable>false</nullable>
+                           </column>
+
+                    
+
+                                 
+                  </columns>
+
+                  <primary-key name="GM_ID_PK">
+
+                  <primary-key-column>GM_ID</primary-key-column>
+
+                  </primary-key>
+
+
+
+                  <foreign-keys>
+
+    <foreign-key name="Group_ID_FK1" reference-table-name="Group_Details">
+      <fk-columns>
+         <fk-column>
+            <fk-local-column>Group_ID</fk-local-column>
+            <fk-reference-column>Group_ID</fk-reference-column>
+         </fk-column>
+      </fk-columns>
+   </foreign-key>
+
+    <foreign-key name="User3_ID_FK1" reference-table-name="Group_Details">
+      <fk-columns>
+         <fk-column>
+            <fk-local-column>Group_ID</fk-local-column>
+            <fk-reference-column>Group_ID</fk-reference-column>
+         </fk-column>
+      </fk-columns>
+   </foreign-key>
+
+    </foreign-keys>
+
+                
+         </table>
+
+
+
+
+
+</data-dictionary>
+
+
+
+
+
+
